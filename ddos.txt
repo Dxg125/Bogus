@@ -1,0 +1,47 @@
+DDoS Handout
+
+Inhaltsverzeichnis
+Funktionsweise des Angriffs. 3
+Folgen für das Opfer. 3
+Firma. 3
+Privatperson. 3
+Schutzmassnahmen. 3
+Beispiel 3
+Quellen. 3
+
+Funktionsweise des Angriffs
+Im Gegensatz zu einer einfachen Denial-of-Service-Attacke (DoS) haben Distributed Denial-of-Service-Attacken (DDoS) eine immense Schlagkraft. Dabei greifen mehrere Computer den Server gleichzeitig an. Dies kann sehr schnell zum Ausfall der Server führen. Meistens zielen sie dabei auf den Web- und Datenbankserver.
+Arten
+Volumetrische Angriffe:
+Diese DDoS-Attacke wird auch Überflutung des Servers genannt. zuerst werden ein paar Computer mit der Schadsoftware infiziert. Danach greifen diese parallel an. Dabei wird der Server mit unzähligen anfragen überfordert bis die Bandbreite der Webseite nicht mehr ausreicht. Das führt dazu, dass die Webseite stark verlangsamt oder gar nicht mehr verfügbar ist.
+TCP-State-Exhaustion-Angriffe:
+Dieser DDoS-Typ zielt vor allem auf Webserver und Firewalls. Dabei wird geschaut, dass man die begrenzte Anzahl gleichzeitiger Verbindungen vom Server überschreitet und somit den Server lahmlegt.
+Angriff auf Anwendungsebene:
+Dieser DDoS-Angriff nennt man auch Layer-7-Angriff. Dieser Typ sucht Schwachstellen eines Servers aus, um dann eine Verbindung herzustellen und den Server langsam zu überlasten indem man immer wieder das gleiche macht. Dieser Angriff ist schwer zu erkennen, da man eine geringere Anzahl von Computer benötigt, und so nur eine geringe Datenverkehrsrate erzeugt wird.
+
+
+no för dich https://www.tecchannel.de/a/ddos-angriffe-wirksam-abwehren,2074329
+http://leetupload.com/database/Misc/Papers/eBooks/German!/Hacking/ddos_attacken_tutorial.pdf
+Folgen für das Opfer
+Folgen für das Opfer
+Firma
+Eine Firma namens Web-Shop AG bietet über einen Web-Shop Produkte wie T-Shirts und andere Kleider an. Die Web-Shop AG wird nun Opfer eines DDoS-Angriffs, was die Auswirkung hat, dass Die Seite nicht mehr erreichbar ist. Tiffany die unbedingt das neue T-Shirt haben will, kommt einfach nicht auf den Web-Shop, was sehr ärgerlich für beide Seiten ist.
+Einerseits ist dies Rufschädigung für die Web-Shop AG weil Tiffany jetzt denkt, dass die Web-Shop AG Ihre Rechnungen nicht bezahlt hat, was ja auch denselben Effekt hätte: Die Seite ist nicht erreichbar.
+Andererseits kann die Web-Shop AG Ihre Kunden (eingeschlossen Tiffany) nicht bedienen. Dadurch gibt es Verluste durch nicht verkaufte Waren.
+DDoS-Angriffe können aber auch genutzt werden um ein System zu überlasten und eine Sicherheitslücke zu finden und auszunutzen. Daraus würde dann zum Beispiel Datenklau wertvoller Kundendaten resultieren, bei unserer Web-Shop AG wäre das z.B. die Kreditkarten-Daten von Nutzern die dann in den Händen der Angreifer wären. Wobei aber nicht nur Daten von Kunden geklaut werden können, sondern auch wenn es ganz schlecht läuft, auch Geschäftsinterne Daten und Dokumente.
+Durch die Serverüberlastung respektive DDoS-Angriff kann ein Angreifer auch Malware auf den Server der Web-Shop AG übertragen. Dadurch könnte man noch sehr viel Schaden anrichten, z.B. wenn Tiffany auf die Seite der Web-Shop AG geht unwissentlich einen Trojaner/Virus herunterlädt. Das ist dann aber auch (so glaube ich) das Extremste.
+Privatpersonen
+Private Computer sind recht gut geschützt, da Sie von Ihrem ISP (Internet-Service-Provider)  in der Regel keine statische IP erhalten. Im schlimmsten fall hätte man dann kein Internet bis die öffentliche IP geändert wurde, was die meisten ISPs recht schnell machen.
+Falls ein privater Computer direkt angegriffen wird, so hat dieser PC eine Firewall die eigentlich alle von aussen kommenden Verbindungen blockiert. Mal abgesehen davon, dass das Internet für kurze Zeit nicht verfügbar sein wird ist der mögliche Schaden im Vergleich mit den Servern der Web-Shop AG recht klein.
+Schutzmassnahmen <- de esch schwul
+<- de esch immerno schwuuuuul Das wichtigste ist, dass man für alles ein sicheres Passwort benutzt, und dieses auch regelmässig wieder ändert.  Damit der Angreifer nicht so einfach an deine Login Daten vom Webserver kommen.
+Wenn kleinere Überlastungen von mehreren Computern kommen, kann man eine Sperrliste einsetzten. Diese Sperrliste blockt alle Datenpakete von diesen Computer.
+Wenn der Angreifer nur die IP-adresse kennt kann man diese leicht ändern.
+Man sollte schauen, dass der Anbieter bereits einen Grundschutz gegen DDoS-Attacken hat.
+
+Beispiel
+Quellen
+Titelbild: https://cyberwurx.com/ddos-attack-ex.png
+funktionsweise: https://www.link11.com/de/was-sind-ddos-attacken/ https://www.verisign.com/de_DE/security-services/ddos-protection/types-of-ddos-attacks/index.xhtml
+Sicherheitsmassnahmen: https://de.wikipedia.org/wiki/Denial_of_Service
+

@@ -1,0 +1,38 @@
+Config:
+
+php.ini, vhosts, IP:Port & SSL-Zert ahpasst?
+ALLES OFF? Expose PHP = OFF, ERROR _LOGGING = OFF ETC?
+
+Browser:
+
+Opera
+Microsoft Edge
+Internet Explorer
+Safari
+Firefox
+Google Chrome
+Vivaldi
+
+Benutzerfreundlichkeit:
+
+Intuitiv bedienbar
+Mehrsprachig implementiert? (Durchtesten -> E_ALL -> Notices)
+
+Performance:
+
+Ladezeit unter 2 Sek.?
+Lighthouse TEST
+
+Kommunikation:
+
+Mail an Vertrieb / Logistik / Technik -> In 5 Min für die nächsten 5-10 Min Site bitte nicht nutzen
+Auch in Line, Mails lesen kann sehr schwer sein
+Überprüfe ob JS/CSS/IMG-Dateien aktualisiert wurden -> ( link?date(Hi) )
+Upload -> Nur mit stabiler Verbindung
+Mail schreiben > ez okay
+
+Nach dem Upload:
+
+OWASP ZAP Top 10 Prüfung
+SSL Labs Prüfung
+

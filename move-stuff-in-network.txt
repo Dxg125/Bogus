@@ -1,0 +1,43 @@
+
+scp -P 80 ... # Use port 80 to bypass the firewall, instead of the scp default
+
+scp /path/to/file username@a:/path/to/destination
+
+scp -P 31101 /home/service/RMImage.tar.gz admin@P(DAbB@o:/tmp/redmineimg
+
+
+#PW dennig nochher igeh -> werd aso nid gspeicheret
+scp -P 31101 -r /home/service/RMImage.tar.gz admin@192.168.2.201:/tmp/redmineimg
+
+Scp -P <Port> -r <???> von<Absoluter Pfad> user<UserName>@ziel<Zielhost>:ZielPfad<Absoluter Pfad>
+
+
+
+Btw peter bruche no Access für logmein, susch channi pw's ned speichere
+
+#TODO
+Ldap Config kopiere
+RedMine kopiere & ischalte -> Bruche Root Account, susch hani ke access ufde docker :( Admin längt nid
+PasswordDepot beschröften
+
+https://www.maketecheasier.com/copy-move-docker-container-to-another-host/
+https://docs.gitlab.com/ee/administration/auth/how_to_configure_ldap_gitlab_ce/index.html
+https://askubuntu.com/questions/505506/how-to-get-bash-or-ssh-into-a-running-container-in-background-mode
+
+docker exec -it gitlab bash
+
+docker container run -d -it sameersbn/redmine redmine bash
+
+docker container run -d 9d6ea47fc361 gitlab bash
+
+sudo docker exec -i -t loving_heisenberg /bin/bash #by Name
+
+Aus <https://askubuntu.com/questions/505506/how-to-get-bash-or-ssh-into-a-running-container-in-background-mode>
+
+
+
+sudo docker exec -i -t
+
+docker exec -it <containerIdOrName> bash
+
+Aus <https://askubuntu.com/questions/505506/how-to-get-bash-or-ssh-into-a-running-container-in-background-mode>

@@ -1,0 +1,52 @@
+Let chaos = `reign`; lulululu
+
+Struktur-Idee Index.html
+
+Include global 	Eine Datei welche alle wichtigen Bestandteile der Seite (Controller, View) einbindet, später vlt auch die Sprache herausfindet und anhand dessen den Content anpasst
+Isset($_GET["page"])	$_GET["page"] ist immer gesetzt, wenn nicht wird es gesetzt auf "Dashboard" unbekannte Werte werden mit Dashboard ersetzt
+Isset($_POST["user"])	Ob eingeloggt(mit SQL-Abfrage welches das verschlüsselte eingetippte pw beinhaltet) -> eigtl
+	selbsterklärend wenn nicht eingeloggt weitergeleitet zum Dashboard, welches auch das Login beinhaltet
+	Trifft nur ein, wenn page gesetzt ist
+$_POST["target"]	Die Zielseite, welche durch den $_GET["page"]erkannt wurde, wird nun in eine POST geladen -> loadHead() && loadBody() && LoadFooter() müssen davon abhängig sein
+loadHead();	Ladet den/die Doctype, css, js(die nötigen, welche keinen visuellen Einfluss haben), meta, title und andere tags ein
+loadBody();	Gibt den kompletten visuellen Bereich der Seite aus(ohne animationen oder sonstwelche libaryaktionen wie jqx), von global inkludiert wie head und footer
+loadFooter();	Lädt die restlichen js, und andere animationen usw ein sowie schliesst den Tag ab
+
+/* SITE_ROOT const also necessary for Security Checks */
+define('SITE_ROOT', realpath(dirname(__FILE__)));
+/* get the Includes */
+require_once(SITE_ROOT . '/controller/core/core.php');
+/* Check if POST-Ajax Request or echo Page */
+die(isAjax() ?: new Page(get(PAGE::PAGE_GET_KEY)));
+
+Autoinclude -> Page / style.css
+
+Page -> style.css/js.js/content.php
+
+Zuesätzlichi Idee:
+
+Noscript muess au parat si,
+404, 405 usw Sites alli erstelle
+
+Navbar-Idee, googlesuche in
+
+Getter und setter
+
+Anstatt
+getX(){return 123}
+setX($this->x=$x)}
+
+Function name($val = false){
+	If (!$val) return x;//wenn nicht gesetzt = false also ein get
+	Return $this->x = $val;//wenn gesetzt = val also update
+}
+
+
+
+<?php
+basename(__FILE__) != basename($_SERVER['SCRIPT_FILENAME']) && die();
+define('SITE_ROOT', realpath(dirname(__FILE__)));
+require_once(SITE_ROOT . 'InitialFilePathFromIndexonwarnds.php');
+die(dispatchStuff());
+?>
+

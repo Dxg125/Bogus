@@ -1,0 +1,19 @@
+supermicro.ch für SMC
+https://partsurfer.hpe.com/search.aspx für HPE
+
+system pn eingeben
+
+-> suche
+
+Modellbez suchen
+
+PN von Website
+
+Resultate vergleichen (kleine differenzen)
+
+unde -> see part list
+
+obere immer drinnen
+untere liste / optional möglich
+
+bei HP Part Surfer

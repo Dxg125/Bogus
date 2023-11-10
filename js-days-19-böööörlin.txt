@@ -1,0 +1,431 @@
+GITHUB REPO: https://github.com/whythecode/jsdays2019-herbst
+
+Lul ? Console.groupEnd()??
+
+Teilnahme Zertifikat RIP
+
+Bide console logs gsehni ke style wie met %c etc. lul
+
+Au die afüehrigszeiche met zeicheaständ findi nienets
+
+Vermuetig esch richtig gsi, bes jeze ersch repetition
+
+Green.node url för -> Was vo Node funzet im Browser
+
+Okay, mer fanged mit MATH.PI ah lul
+
+Holy shit de ersti tag esch wörkli für bluetigi afänger lul
+
+Verschiedene Datentypen
+
+Primitive Typen: int,  boolean, string, null, undefined
+
+Komplexe Typen: Objekt etc
+
+Wenn man explizit nichts setzt, macht null sinn
+
+Sogar mit Ternäre Operatore etc. nice shit
+
+
+
+Pause 1030 & 1500 0.5h -> Mittag -> 1230 1h
+Und pönktlich simmer ned gsi, was aber för de unterricht spricht
+lul
+
+Fragen: Macht es in einer produktiven Umgebung mit verschiedenen Entwicklern sinn, anstatt true 1 und anstatt false 0 zu verwenden?
+
+Ned bös gmeint, aber bitte mached camel case oder ned aber das esch ned einheitlich
+
+
+
+
+Kopie -> Ernsthaft -> Lul
+
+Kopieren von Flachen Objekt (Arrays) (Keine Ref, nicht Rekursiv, nur erste ebene)
+
+Var kopie = Object.assign({}, ObjektZumKopieren);
+Oder normal:
+Var yay ? {…ObjektZumKopieren}
+
+Beispiel:
+
+Var object = {
+	Object2: {}
+}
+
+Wenn du in Object 2 änderst, wenn du nur eine flache kopie gemacht hast, funktioniert nicht, ist noch eine Referenz, weil eben nicht rekursiv
+
+TypeScript ist JavaScript / Eine Hülle drumrum, also eine JS-Extension wemmer so wott
+
+
+JS Compiler verschiebt die var (let const etc nicht) an den anfang der Datei, und erstellt diese in zwei Schritten
+Als beispiel
+
+Wenn ich var a = 1; schreibe
+Macht JS
+Var a;//ganz oben, also ist die var undefined
+a = 1;//macht es erst bei der entsprechenden Zeile
+
+Auch bei Funktionen, diese werden als erstes vom Compiler gelesen, also kann ich eine GLOBALE FNC verwenden auch wenn diese noch nicht definiert ist
+
+Funzt aber nicht in Kombination mit Var
+Also var fnc = function kann ich nicht davor aufrufen
+
+Best Practice Funktionen welche Variablen verwenden, übergib diese als Params, weil damit kannst du das gesamte besser warten, sonst musst du die var suchen, wenn überhaupt gesetzt
+
+
+Commonjs -> module.exports('')
+Const data = require….
+
+Amd
+Define()
+Require()
+
+
+
+
+Scopes
+
+Global -> BAD
+Function > DOTO
+Closure
+Block (alles mit geschweiften Klammern, auch try und catch)
+
+
+
+Var array = [param1, param2, param3];
+Func(…array)
+
+Gleich wie Func(array[0], array[1]…..)
+
+
+
+Für was bitteschön wörd mer typescript produktiv nutze, eg meine wtf typescript wo en scheiss uf js esch esch kk aber jquery (klar sehr vell langsamer als DOM) esch öberflüssig???
+
+Also zämegfasset esch typescript javascript zrugg zu java umgwandlet ich mein wtf,
+Klar muessmers chönne, wie java, aber trotzdem js esch i mine auge passender förs web
+
+https://medium.jonasbandi.net/here-is-why-you-might-not-want-to-use-typescript-part-1-alternatives-ec1248bb6dc
+https://www.educba.com/typescript-vs-javascript/
+Und ech merke die send fan vo typescript, aber gsehne no ken vorteil
+
+
+########################################################################
+DAY 2
+
+
+Testing-Pattern -> Triple A:
+Arrange (Aufbau)
+Act (Ausführen)
+Assert (Prüfe das Ergebnis)
+
+Testing-Pattern
+Red (Error)
+Green (Funktioniert jetzt)
+(-Denken)
+Refactor (Nächste Änderung / Fall)
+
+Okay jeze bini im bild öber es testingframework
+Aber de produktivi nutze fehlt mer jeze no, vlt chunnt de am nami
+Aber uf jede, wenni en awendigsfall för das fende, wärs saunötzlich
+
+Aso folgendermasse -> NPM installiert Jasmine & es paar anderi sache
+
+Npm install ->
+Step by step (Bei neuem Projekt)
+```bash
+npm init -y
+npm install -D karma
+npm install -D karma-jasmine karma-chrome-launcher jasmine-core
+```
+# Initialisierung
+```bash
+npx karma init
+```
+# Ausführung
+Server starten:
+```bash
+npx karma start
+```
+Test ausführen:
+```bash
+npx karma run
+```
+# schönere Ausgabe
+```bash
+npm install -D karma-mocha-reporter
+```
+in der karma.conf.js unter reporters: den Wert `['mocha']` eintragen.
+
+# Links (weitere)
+- https://github.com/sspringer82/programmingChallenges
+- https://getsandbox.com/
+arma-chrome-launcher jasmine-core
+
+
+Tests sollen lesbar sein, danke hetti ned denkt, das lauft ja aube au ned produktiv
+
+Für Testing bitte plain so gut wie möglich verwenden, also keine DB etc. empfohlen, macht vlt aber auch keinen sinn, das
+
+BTW: das karma zügs macht autoimport, also just saying, nur d'filepatterns hinterlege und ez
+
+BTW Karma Autowatcher macht mängisch chabis, also neustarte und wenns gliche result git, genau susch repperino -> Config change natörli au en restart
+
+GITHUB REPO: https://github.com/djungowski/jsdays19-testing
+
+Was för verdammti helde
+Zersch 9/10 vom Tag mit Karma jasmine etc
+
+Aber das esch eigtl alt, da gits no jest das esch besser
+
+WUT ech schwör das git toti REEE
+
+Und de rest mitem headless esch au nur nice to know, aber relativ unnötig, glaubich i minere jugendliche naivität
+Jasmin-jquery ->look at it m8 (au wenns aube reine bs esch)
+
+Und warum muess de vogel fore en fkin furry si kyys du spst
+
+#####################################################################
+Day 2 EVENING
+Snippets & Puzzels -> Crazy Frontend sheit
+
+
+To inform JS WAT
+JS Fuck kennsch jo scho
+
+Duckomenta.de -> lmao för de bam
+
+String s = new String() funktioniert /typedefinierig
+Aber au let s = "123"
+
+WebAssembly 2  sprache neben js
+Ist eigtl nur bytecode
+Ziel ist performance (verlässlich)
+Nur nummern
+Hat aber keinen GC und Zugriff aufs DOM
+
+Quake 1 ist auf Webassembly im Browser verfügbar
+
+Es laufed kellner ume und die verteiled bier lol, das esch scho en huere luxus schuppe
+
+Document.designMode = "on"// machs bim dino die konsole oder so :)
+
+####################################################################
+DAY 3
+
+Moderne Web-Apps mit Vue
+
+GITHUB REPO: github.com/nofrank/jsdays19
+
+Folder in JSDays/vuejs/*
+
+
+Um vue zu exen in der CLI -> vue serve HelloWorld.vue
+
+Um ein GUI für Vue zu öffnen -> vue ui
+
+Tailwind CSS wird ned verwendet, Punkt, das esch en katastrophe
+
+Evaluation vo Vuejs esch förne arsch, dass chamer leider ned produktiv verwende ohni (komplett) vo fore azfoh, zudem gits sehr viel praktischeri aspekt, und node sowie npm esch easy nice, vlt chömmer das au bi eus ibaue, well das git performance
+
+Live JS
+
+Websockets -> Socket.io Rocks (socket.io) -> Channels, Broadcasting etc etc
+Werden wir aber in diesem einfachen Fall nicht verwenden
+
+Mincia das lohnt sech, websockets und http server undedranne, verdammt de morge met vue esch bs gsi
+
+Anyway gits
+
+Browser unterbinden videos und audios gerne wenn keine userinterakton wie fokus etc stattfindet
+
+#########################################################################################################################################
+Day 4
+
+Morgen esch Black Magic im Typescript lul
+
+// Den Browser rechts einfach ignorieren/minimieren :)
+let test: 5 = 5; // cha nur foif so
+
+type Bar = {readonly type: 'BAR'};
+const BarMsg: Bar = {type: 'BAR'};
+
+//alles auf readonly setzen
+const Msg = {test: 1, foif: 3} as const;
+
+let list: Array <string | number> = ["123", 123];
+
+typeof
+keyof
+
+Informier dech öber keyof!! Und ab wenns de kack im js au git, well das esch fkin nice
+En mapping funktion ala keyword esch eif sexy
+
+In dem sinn wörs sinn mache, en applikation im ts zmache, um mithilfe vode typedefinierig validation etc eifach abzhandle
+
+//TypeGuard
+
+
+// Den Browser rechts einfach ignorieren/minimieren :)
+let test: 5 = 5; // cha nur foif so
+
+type Bar = {readonly type: 'BAR'};
+type X = {};
+const BarMsg: Bar = {type: 'BAR'};
+
+//alles auf readonly setzen
+const Msg = {test: 1, foif: 3} as const;
+
+let list: Array <string | number> = ["123", 123];
+
+type F = Bar | X;  //oder
+type cky = Bar & F;//muss beide anforderungen erfüllen
+
+//Literal Union
+type Species = "Cat" | "Dog"; //gehen nur diese beiden als string
+
+let animal:Species = "Cat";//geht!
+
+let genVal = () => {true};
+
+//let testerino X: number | string | boolean = genVal();
+
+Dino -> lad der doch eslint etc abe, aber de scheiss wird ich ned mau vlt. Bruche, lieber fangi met Laravel ah, lmao
+
+Und de huere React / Angular scheiss esch konsequent ned nötig, usnahme im shop für items
+Aber för de rest send komponente hert unnötig, und darum frogi lohnt sich so es grosses framework, wennd nur en component für d'shop items machsch?
+
+
+
+
+
+
+Offline Apps, sowie Sync resp de Backend-Part
+
+Well im frontend wärs scho zu ez
+
+Holy cow die mached das im dot-net
+
+Das wird lustig
+
+Aslo beispielsweise, im frontend ein abbild der Daten vo mir us in json oder was au emmer
+Dete  speicherisch luegsch simpel eifach alli date im lokale array
+Jetze stell der vor du hesch uf de db zeile es feld names rowversion
+
+Wenn jeze de nutzer das lokal ahpasst und glichziitig offline esch, muess das im array im js gspeicheret werde
+
+Und bem ufelade, werded die rowversion vergliche,, ACHTUNG muess es anders feld si anstatt
+
+Also eigentlich werded datebanke usem code generiert, s. laravel, aso eigtl esch create table überholt
+Lueg emole wie das in PHP umsetzbar esch
+Ja demfau die verwended blade-engine womer doch grad no bi laravel gsi send
+
+Table migrationhistory
+
+Dademite chasch glichziitig au en db-history erstelle
+
+Aber lueg bitte das iwie en model/syncabale (klasse) erstellsch, um das ganze vom Model z'überprüefe
+
+Also frei nachem Motto hesch db klasse mit allne pks, date etc ussert rowversion
+
+Die holsch usere andere klass, wo db klass implementiert oder vice versa
+
+Wie fendsch vode lokale maschine use, wie und eb du grad en verbindig hesch, post und on fail -> code ka timeout oder so, dasses lokal gspeicheret wird im browser esch jo voll easy, müesstisch aso eppis erstelle post isConnection() -> überprüef ob en verbindig bestoht, oder sogar en leeri afrog? Oder eifach ufe Code 200 achte
+
+Db-trigger wenn relation angepasst oder geändert? Müsste
+
+Ned vergesse för jede Datesatz, wege de rowversion obedrufe auno en pk (anderi tabelle) oder en guid wenns die gliche tabelle machsch
+
+Erstell en generischi klass för en abstrake sync, das goht ned ohni tables im model abbildig
+Und wemmers eh so macht, macht en table generierigs framework härt sinn
+
+Aso eppis um alles z'synce frei nachem motto -> data {table: 'xy', data:{}} wo das ganze selber merge chan, und au bi unklarheite en notice oder ähnliches usgit
+
+Codebispil esch eifach in C-Sharp aber who cares
+
+Public async (Data Data)
+Where do Sync = true
+And RowVersion is legit
+Doto Sync (&save to synced data table)
+
+Btw csharp esch en mischig vode klasse vo java und de keywors wie var etc vo JS
+
+Ned vergesse, du muesch ALLES async mache, susch chönntsch oflline ned funktioniere ohni lokal s'ganze scheiss script z'blockeire (vergiss nid, JS het ein Mainthread, susch müesstisch worker beschäftige för das (Was au ned emole so schlemm wäri))
+
+Und för die rowversion isch en timestamp unumgägnlich!!!
+
+Sequel stellt eine rowversion bereits zur verfügung, jenachdem muess eg de scheiss vo null implementiere, wenn das öberhaupt passiere wird, aber em allgemeine esch das en fkin vorteil
+
+IndexDB -> Lokal -> TODO GOOGLE
+
+Oder das chönnt mer au met websockets mache, dennig wörd de server änderige triggere, anstatt das de client nachefrogt oder es geiht au met RxJS -> TODO GOOGLE
+
+Aso en pipeline bi rxjs?? Macht wenig senn, da wäred websockets sehr vell benutzerfründlicher, aber au sehr vell ufwändiger, well muesch dech druf achte, wege de sicherheit und all die hashings gopf das wird lustig
+
+Bsp dateSatz: {pk: 1, hashedPK: some hashdonewithPK -> und das wird gsyncet, timestamp, data etc.}
+
+Aso eigentlich chasch säge, das frontend model fasch glich wies backend model esch, aber au ned aues, well alli die heimliche vars (statuscd etc was mer halt eigentlich ned derbi het, ohni en spezielli abfrog)
+
+
+No schlemmer die mached das steihärt met http-clients, okay aber ohni lib muessmer so ja sehr vell meh mache, und en lib wie rxjs esch im verglich zu WS en fkin unnötige overkill
+
+Okay han nüt gseit, de macht steihert en timer, ned so schlemm wie set timeout, aber s'prinzip esch genau glich
+
+Ned vergesse för jedi scheiss klass en toJSON fnc, susch gets problem mete ziit
+
+Mapping funktion för mehreri tables
+
+Und lueg au de sitewechsel wird nur es problem wegem content, ned wege de date
+
+Alli date chasch ja lokal ha, und je nach site tuesch si entsprechend mappe
+
+Apropos da php ja nur lebt wenns nid tot esch, wie masch das? Eigtl garned
+
+Dadeför muesch fasch scho node verwende, oder uf jede eppis lebigs, well de huere phpshit cha zwar streame, aber es script chasch ned 24 / 7 selbstufrüefend laufe loh, es goht scho aber kys
+
+Aso folgendermasse, die ganzi page muesch eigtl im js generiere, susch geihts ned wenn de content abhängig esch vom Server wegem Content
+edit
+Also eigtl muesch bem lade, alles lade vo content generierig (vo mir uus chan das au php mache, oder au node, aber er muess im dom bliebe) zudem bruchsch entweder en IndexDB (siehe chrome webtools)
+Oder speicherisch das ganze inere Klass oder ähnlich (ned global plz)
+
+Vergiss ned irgend en render func zmache, goht io au met html templates, oder sogar components mached i soneme fall sinn
+
+Gib eine nachricht aus, du bist offline, -> deine daten werden gespeichert, sobald du wieder eine verbindung hast
+
+Also actually esch das sau geil
+
+Hol der unbedingt die folie & repo etc.
+
+Das lohnt sech härt
+
+Mer muess ja ned iwie webworker verwende, aber met WS wärs au noice
+
+Btw benutz obeserverbales oder unbedingt async await,
+
+Aber jo ke promises, das chammer ned i eifachem und siplem kontext benutze
+
+GIT REPO: https://github.com/thinktecture/thinktecture-boardist
+
+
+Oder wege de sicherheit, wenn die date ersch verfüegbar sind, wenn en user igloggt esdhc, dennig chasch eifach em user en token ahänge, anstatt em
+
+BEDENKE: alle date wo lokal gspeicheret werded die indexDB, wennde offline besch, und din account glöscht wird, het de benutzer alli date solange er no offline esch, was eigtl en mittelschweri katastrophe esch
+
+Also wennde offline besch, wie chasch das löse
+
+Und müessti ned jedes feld en eigeni version ha, well vlt het user 1 name gänderet und user 2 minPlayers gänderet, aber wenni nur nachem timestamp gahne gwünnt eppert
+
+GOOGLE DB -> MIN_ACTIVE_ROWVERSION()
+
+
+Ist unter d:/web/JSDays
+
+Alles von mit zahlen kommt von d1
+Testing von d2
+Vue und livejs von tag 3
+Tag 4 het ke Code im klassiche sinn geh
+
+FFS du fkin retard, die sachene send jeze weg
+Well ufem huawei, ja de esch gsi
+Und ufde andere, ja die send au gsi
+

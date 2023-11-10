@@ -1,0 +1,69 @@
+# Redirect always on HTTPS (:443)
+RewriteEngine On
+RewriteCond %{SERVER_PORT} !^443$
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}$1 [R=301,L]
+
+# Error Documents (MUST EXIST BEFORE ACTIVATION OR HTACCESS THROWS ERROR)
+# ty to -> https://stackoverflow.com/questions/19962787/rewrite-url-after-redirecting-404-error-htaccess
+ErrorDocument 400 /err/400/
+ErrorDocument 401 /err/401/
+ErrorDocument 402 /err/402/
+ErrorDocument 403 /err/403/
+ErrorDocument 404 /err/404/
+ErrorDocument 405 /err/405/
+ErrorDocument 406 /err/406/
+ErrorDocument 407 /err/407/
+ErrorDocument 408 /err/408/
+ErrorDocument 409 /err/409/
+ErrorDocument 410 /err/410/
+ErrorDocument 411 /err/411/
+ErrorDocument 412 /err/412/
+ErrorDocument 413 /err/413/
+ErrorDocument 414 /err/414/
+ErrorDocument 415 /err/415/
+ErrorDocument 416 /err/416/
+ErrorDocument 417 /err/417/
+ErrorDocument 422 /err/422/
+ErrorDocument 423 /err/423/
+ErrorDocument 424 /err/424/
+ErrorDocument 426 /err/426/
+ErrorDocument 428 /err/428/
+ErrorDocument 429 /err/429/
+ErrorDocument 431 /err/431/
+
+ErrorDocument 500 /err/500/
+ErrorDocument 501 /err/501/
+ErrorDocument 502 /err/502/
+ErrorDocument 503 /err/503/
+ErrorDocument 504 /err/504/
+ErrorDocument 505 /err/505/
+ErrorDocument 506 /err/506/
+ErrorDocument 507 /err/507/
+ErrorDocument 508 /err/508/
+ErrorDocument 510 /err/510/
+ErrorDocument 511 /err/511/
+
+# Only HTTPS
+Header add Strict-Transport-Security "max-age=31536000; includeSubDomains"
+# Server soll nicht versuchen Dateitypen zu identifizeren (Gif könnte als HTML o.ä. dargestellt werden) TL;DR CUZ XSS
+# in other words, it is a way to say that the webmasters knew what they were doing.
+Header add X-Content-Type-Options "nosniff"
+# Content-Type-Security Nur Eigene Objekte, Schriftarten, Medien, CSS, JS etc. erlaubt (also von der eigenen URL)
+Header add Content-Security-Policy "default-src 'none'; script-src https: 'self'; connect-src https: 'self'; img-src https: data: 'self'; style-src https: 'unsafe-inline'; font-src https: 'self'; frame-src https: google.com; form-action https: 'self'; manifest-src https: 'self'; report-uri ./?"
+# Block pages from loading when they detect reflected XSS attacks:
+Header add X-XSS-Protection "1; mode=block"
+# Frames einschränken, sodass nur die eigene URL genutzt werden kann
+Header add X-Frame-Options "sameorigin"
+# Executable Dateien einschränken
+Header add AddHandler default-handler
+# Prevent viewing config / critical files -> !!! DON'T USE WILDCARDS !!!
+<Files ~ ".(htaccess|gitignore|json|lock)$">
+    order allow,deny
+    deny from all
+</Files>
+
+# No Directory Listings
+Options All -Indexes
+
+#@__HCP_END__@#
+# Anything after the comment above is left alone

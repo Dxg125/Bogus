@@ -1,0 +1,11 @@
+Könnte man sagen, dass der Aufbau von DNS sozusagen eine Baumstruktur ist?
+
+Ist es möglich im DNS
+
+ z.B.  Die Top-Level CH und DE auf den gleichen Eintrag zeigen, Ja, Eintrag des Ziels ist aber Redundant, also mehrere können auf die gleiche IP zeigen, aber nicht z.B.
+
+Google.ch || .de	8.8.8.8
+
+Sondern
+Google.ch	8.8.8.8
+Google.de	8.8.8.8

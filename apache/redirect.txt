@@ -1,0 +1,6 @@
+
+RewriteCond %{QUERY_STRING} (get_param=MustHaveValue)
+RewriteRule (.*) http://www.domain.com/news/2010/07/my-new-news-item/? [L,R=301]
+
+Aus <https://stackoverflow.com/questions/3405752/rewrite-rule-for-apache-htaccess-that-checks-for-existence-of-certain-get-params>
+

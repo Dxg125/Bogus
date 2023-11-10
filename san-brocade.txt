@@ -1,0 +1,134 @@
+Requirements:
+
+	Name				IP-Adresse		Firmware	Anzahl Ports, mit & ohne Lizenzen
+brc2 	switcherino 	SLKWRM0000200 	USB632W58A	N/A	192.168.21.62 	34.0	6.2.2f	16 Ports 12 davon lizensiert
+
+
+SAN - Brocade Training
+
+Brocade -> info(); openPdfInFolder(); unklarheiten->IBM-REDbooks(name auf der Matrix finden)
+
+Grundlagen SAN (Storage Area Network)
+Ein Netzwerk zur Nutzung von Speichersystemen für alle verbundenen Hosts (Linux, Windows, Solaris usw) (blockbasierte Verarbeitung). Server -> SAN-Switch -> Speichersystem.
+Vorteile: Cluster-Möglichkeiten, hohe Verfügbarkeit, Zuverlässigkeit, Gemeinsame Verwaltung, im Betrieb erweiterbar, LAN-free Backup.
+Nachteile: Hohe Investitionen & benötigtes Wissen (komplex)
+
+Point-to-Point -> direkte Verbindung nur 2 Geräte möglich.
+Arbitrated Loop ist ein Kreis, welcher die Daten in eine Richtung senden, kann dauern resp. Zeit in Anspruch nehmen.
+Switched Fabric (Stern-Topologie) Beispiel: mehrere PC’s im Kreis angeordnet, in der Mitte ist ein Switch, welcher alle miteinander verbindet. Gibt auch Dual-Star, also zwei Switches.
+
+Eine Fabric sind mehrere verbundene Switches. Zwei Fabrics sind voneinander unabhängig. Router trennen Fabrics.
+
+Verbindungsart Fibre-Channel: Server -> Channel (HBA) -> (falls Fiber Channel) Transceiver -> Connector -> Fiber (resp. Kabel) -> Storage Network -> Disk -> Tape
+
+Fibre Channel ist extrem verwundbar durch Staub, oder ähnliches beim visuellen Eingang -> Staubkappen lösen dieses Problem.
+Tranceiver Module ->
+GBIC sind alt also 1 GBps, sind Alt.
+SFP & SFP+ 2,4,8,16 GBps aktueller.
+Fibre Channel Multi-Mode breite des inneren Licht-Kanals ist zwischen 50-62.5 micron im Vergleich ein Single-Mode hat nur ca. 9 micron
+Möglichst wenige Knoten in Verbindungen (Fibre Channel), den diese generieren einen kleinen Verlust.
+Kabel, welche optische Signale unterstützen sollten erst ab OM3  (Standard) verwendet werden.
+
+Brocade Port LED’s
+Status
+Links aus -> Kein Link
+Grün -> Link (funktioniert)
+Grün blinkt -> Datenverkehr
+Gelb leuchtet/blinkt -> Problem
+
+FOS -> Fabric Operating System
+BNA -> Brocade Network Advisor Netzwerk-tools vom Switch
+FCP / FICON (wenig anders) -> Fiber Channel Protocol
+ISL(s) -> Inter Switch Link(s)
+Management Tools:
+Command Line    Ethernet or Serial Connection benötigt 1 zu 1 Kabel kein twisted Pair
+Admin – password (EMC: Serv4EMC)
+Root – password, fibranne, fivranne
+
+Commands
+
+Übersicht des Switches und der Ports -> switchshow / diagshow / switchstatusshow / fabricshow / configshow / portshow [number of the port] / chassisshow / porterrshow
+Login wechseln -> login
+Lizenzen -> licenseshow
+IP setzen -> ippaddrshow -> aufschreiben (just incase) -> ipaddrset
+Datum setzen-> date mmddmmhhyyyy / date 101709232017 also der 17 Oktober um 09:23 2017 / 10 17 09 23 2017
+
+Fibre Channel
+
+16 Millionen Adressen möglich
+Geschwindigkeit von 1gb, … 16gb, …
+Fibre ist das Protokoll -> FCP
+Fiber ist das Kabel
+Immer Full Duplex
+
+Ein FC Frame = 2148 Bytes (SOF -> 4 Byte, Header 24 Byte, Payload(daten) bis 2112 Bytes, crf 4 Bytes, eof 4 Bytes);
+
+WWNN (World Wide Node Name) oder WWPN (World Wide Port Name) -> siehe PDF ab Seite 80
+Jeder Port im Fibre Channel hat einen eindeutigen Identifier (ID)
+
+Vorgehen:
+
+Benötigte Informationen:
+
+Anzahl Ports:
+Kabellänge:
+Long-Wave oder Short-Wave:
+Desktop oder Rack:
+Switch Name & ID’s:
+IPv4 Adress:
+Firmware:
+Lizenzen:
+Fabrics:
+Zoning:
+
+In einer Fabric gibt es 2 verschiedene Rolen, Principal (Master) und Subordinate (Slave)
+
+Zoning
+Eine Zone ist ein Segment, welches bestimmten Geräten erlaubt nur untereinander zu reden.
+Eigentlich ist es wie ein VLAN bis auf den Punkt, dass wir hier in einem SAN sind, also kein VLAN.
+In einer Fabric kann immer nur eine Konfiguration (mehrere Zonen) vorhanden sein.
+Beim Cascading darf nur ein Switch eine aktive Konfiguration haben.
+
+Zoning einrichten:
+Aliase erstellen
+Zone(n) erstellen
+Config erstellen
+Config speichern
+Config einschalten / enable
+Fabric erstellen
+Config disable auf allen bis auf einen Switch (nur ein Principal)
+Physische Verbindung erstellen
+Domain-ID vergeben (Jede muss anders sein)
+Fabricshow -> testen
+
+Lizenzen sind jeweils nur für eine WWNN gültig, also nicht für einen anderen Switch brauchbar.
+Dark fibre -> informieren();
+ICL -> Verbindung zwischen 2 Direktoren
+
+Passwörter ändern/updaten ‚passwd „username“‘ | passwddefault -> loopt durch alle durch
+G_port / N_Port usw setzen -> portcfggport portnummer 1 || 0 bsp. Portcfggport 6 1 -> ändert den port 6 zu einem g_port
+Portcfgspeed legt die geschwindigkeit fest bsp. Portcfgspeed 6 4 setzt port 6 auf 4gbps fest -> fix
+
+Vor dem FOS-Update
+Release-Notes -> ist die FOS-Version mit dem Switch kompatibel?
+Wenn Alles beim Switch in Ordnung ist -> beide Partitionen haben die gleiche FOS
+Das letzte Update muss erfolgreich gewesen sein -> Update History
+Sind die MC-Speicherboxen usw. kompatibel?
+Falls das alles Super ist, Starte das Update
+firmwaredownload befehl starten -> ftp
+Rebootet automatisch -> nochmals einloggen
+Firmwaredownloadstatus -> sobald 5 Einträge vorhanden sind ist das FOS-Update geglückt oder fehlgeschlagen -> steht dort
+
+Switch Domain ID verändern -> configure
+Ports ab 4gb und mehr sind gebrandet
+
+Route / Hops -> Es gibt ein Protokoll welches den kürzesten Pfad findet anhand bestimmter Parameter. Ein Hop über eine 1GBps Leitung gibt 1000 Punkte, eine 2,4,8 GBps gibt 500 Punkte. Der Pfad mit den wenigsten Punkten ist laut Protokoll der kürzeste.
+
+ISL -> reserviert einen Pfad für eine Leitung, wer zuerst kommt malt zuerst. Port-Trunking ist zu bevorzugen, denn damit habe ich die volle Geschwindigkeit zur Verfügung (ist nur noch eine Leitung).
+
+Falls keine Buffer Credits mehr vorhanden sind, weil eine Verbindung Probleme bereitet, benötigt man z.B. Port Fencing andernfalls können die fehlenden Credits das System lahmlegen.
+
+Wichtige Lizenzen: Ports on Demand, Full Fabric & ISL Trunking.
+
+Portperfshow eine Übersicht der Ports und den übertragenden Dateien in MB sowie alle möglichen Fehler
+

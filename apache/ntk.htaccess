@@ -1,0 +1,18 @@
+Nice To Know:
+
+https://www.tutorials.de/threads/download-per-direktlink-verhindern.272093/
+https://stackoverflow.com/questions/2679524/block-direct-access-to-a-file-over-http-but-allow-php-script-access
+https://wiki.selfhtml.org/wiki/Webserver/htaccess
+https://serverfault.com/questions/316814/php-serve-a-file-for-download-without-providing-the-direct-link
+https://research.google/pubs/pub45542/
+https://web.dev/articles/csp?hl=de
+https://www.lunasec.io/docs/blog/csp/
+
+Bypass Docs:
+https://book.hacktricks.xyz/pentesting-web/content-security-policy-csp-bypass
+https://www.cobalt.io/blog/csp-and-bypasses
+https://hacktricks.boitatech.com.br/pentesting-web/content-security-policy-csp-bypass
+https://bhavesh-thakur.medium.com/content-security-policy-csp-bypass-techniques-e3fa475bfe5d
+
+CSP Checker
+https://csp-evaluator.withgoogle.com

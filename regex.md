@@ -1,4 +1,10 @@
-If you read this, assume everything in here is bluntly wrong
+#
+Assume everything in here is bluntly wrong.
+Unironically, many examples ARE WRONG!
+
+### TL;DR https://regex101.com 
+
+# 
 
 Regex zum Kopieren für Passwörter: https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
 
@@ -57,16 +63,17 @@ https://stackoverflow.com/questions/17727884/range-out-of-order-in-character-cla
 
 https://stackoverflow.com/questions/14473917/invalid-escape-sequence-for-regular-expression
 
-varmail="dxg125@gmail.com";
-varmail1="asdf@asdf.com";
-varmail2="asdf@123.asf";
-varmail3="123@123.123";
-varmail4="12@il.1";
-varmail5="123";
+
+var mail="hans@faker-mail.com";
+var mail1="asdf@asdf.com";
+var mail2="asdf@123.asf";
+var mail3="123@123.123";
+var mail4="12@il.1";
+var mail5="123";
 
 
-varre=/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-varself=/(([a-z0-9\.+-_?]){3,35}@([a-z0-9\.+-_?]{3,35}\.[a-z]{2,7}))/;
+var re=/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+var self=/(([a-z0-9\.+-_?]){3,35}@([a-z0-9\.+-_?]{3,35}\.[a-z]{2,7}))/;
 
 console.log("RE");
 console.log("Mail"+re.test(mail));//True

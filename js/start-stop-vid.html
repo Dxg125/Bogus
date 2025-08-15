@@ -1,0 +1,31 @@
+<button id="stop">
+stahhp
+</button>
+<video id="video" style="height: 300px; width: 300px;"></video>
+
+<script type="text/javascript">
+
+window.onload = async () => {
+
+ let Stream = await navigator.mediaDevices.getUserMedia({video: 1});
+ let Video  = document.getElementById('video');
+ let Stop   = document.getElementById('stop');
+
+ console.log(Stream);
+ if (Stream) {
+  Video.srcObject = Stream;
+  Video.play();
+ }
+
+ Stop.onclick = () => {
+  if (Stream) {
+   let Tracks = Stream.getTracks();
+   for (let i in Tracks) {
+    Tracks[i].stop();
+   }
+  }
+ }
+
+}
+
+</script>

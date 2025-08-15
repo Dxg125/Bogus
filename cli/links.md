@@ -1,0 +1,1 @@
+https://channel9.msdn.com/Series/Servermanagement-und-Automatisierung-inkl-PowerShell-4-0/Was-kann-man-mit-der-PowerShell-machen-Ein-paar-Beispiele

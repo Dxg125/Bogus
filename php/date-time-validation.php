@@ -1,3 +1,5 @@
+<?php
+
 /* force DateTimeConversion for validating DateTime */
 function forceDateTimeConversion ($Date = '') {
 	try {

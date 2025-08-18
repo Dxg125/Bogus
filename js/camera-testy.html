@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Test</title>
+ <meta charset="utf-8">
+</head>
+<body>
+
+ <button id="start-btn">Start</button>
+
+ <script>
+
+  window.onload = function () {
+   document.getElementById('start-btn').addEventListener(`click`, async () => {
+    // Permission
+    await navigator.getUserMedia({video: true}, async () => {
+     const Devices         = await navigator.mediaDevices.enumerateDevices();
+     // try to find deviceId 4K Cam, and Logi 200 (eg camera1 and camera2)
+     const Camera1         = Devices.filter(Device => Device.kind == `videoinput` && Device.label.indexOf('BRIO 4K') > -1)[0];
+     const Camera2         = Devices.filter(Device => Device.kind == `videoinput` && Device.label.indexOf('Webcam 200') > -1)[0];
+     // check -> shows 2 devices
+     console.log('Camera', Camera1, Camera2);
+     // id
+     const Cam1ID          = Camera1.deviceId;
+     const Cam2ID          = Camera2.deviceId;
+     // check -> shows 2 different id's
+     console.log('ID', Cam1ID, Cam2ID);
+     // streams
+     const Stream1         = await window.navigator.mediaDevices.getUserMedia({audio: false, video: {deviceId: Cam1ID}});
+     const Stream2         = await window.navigator.mediaDevices.getUserMedia({audio: false, video: {deviceId: Cam2ID}});
+     // check -> returns 2 different streams
+     console.log('Stream', Stream1, Stream2);
+     // create 2 video el
+     document.body.innerHTML = `<video id="cam1" autoplay muted playsInline></video><video id="cam2" autoplay muted playsInline></video>`;
+     // set stream
+     // THE ISSUE OCCURS (PROBABLY) HERE OR BEFORE WHEN REQUESTING THE STREAMS
+     document.getElementById('cam1').srcObject = Stream1;
+     document.getElementById('cam2').srcObject = Stream2;
+     // this works in any browser like edge, firefox, not-original-chrome (vivaldi, brave, edge ....)
+     // but not in chrome Version 139.0.7258.128
+     // streams are different, but the funny thing is, tracks are from the same device
+     const Track1           = Stream1.getTracks();
+     const Track2           = Stream2.getTracks();
+     console.log('Track', Track1, Track2);
+     // while the id of both tracks is different, both have the same label of camera1
+     console.log('Track', Track1[0].label, Track2[0].label);
+     // now both video element have camera1 as source
+     console.log('Both Videos have same stream?? WTF?');
+    }, () => {
+     alert('you need to accept it');
+    });
+
+
+   });
+  };
+
+ </script>
+</body>
+</html>

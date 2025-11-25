@@ -1,0 +1,72 @@
+GIT GC Issues
+
+
+
+
+Häufigi Übeltäter
+
+Delta-Hölle: vill grossi Binaries über zig Commits ⇒ Git probiert absurde Deltas.
+
+Zu vill Threads: Git frisst alli Cores → UI laggt.
+
+RAM-Pressure/Swap: pack.window{,Memory} z’hoch ⇒ Paging → System friert.
+
+HDD / lahmi Disk oder Repo uf Netzlaufwerk.
+
+Antivirus/Indexer scannt .git\objects\pack\*.
+
+WSL ↔ Windows FS Mix (Repo uf C:\ aber via WSL bearbeitet) ⇒ I/O langsam.
+
+Was i deiner Lage würdi jetzt mache (praktisch)
+
+Throttlen & limitiere
+
+git config --global pack.threads 2            # weniger Lagg
+git config --global pack.window 32            # Default ~64 → chli runter
+git config --global pack.depth 50             # Default 50 isch ok, evtl. 30
+git config --global pack.windowMemory 256m    # Deckel setze
+git config --global core.compression 3        # schneller
+git config --global pack.compression 3
+
+
+Antivirus-Ausschluss
+.git-Ordner vom Repo im AV/Defender exkludiere (und allfälligi Desktop-Suche/Indexer).
+
+Binaries vom Delta ausschliesse (riesiger Hebel)
+.gitattributes im Repo:
+
+*.zip -delta
+*.mp4 -delta
+*.png -delta
+*.jpg -delta
+*.pdf -delta
+
+
+Danach neu packe (unten). Für richtig grossi Dateien langfristig: Git LFS in Betracht zieh.
+
+Sauber neu packe (nach obige Settings)
+
+git gc --prune=now
+git repack -Ad --write-bitmap-index --threads=2
+
+
+Falls s’immer hängt: als Escape ohni Deltas (grössers Pack, aber fertig):
+
+git repack -Ad --no-delta --threads=2
+
+
+Repo-Health schnell checke
+
+git count-objects -vH
+# Optional: schwersti Objekte finden
+git verify-pack -v .git/objects/pack/pack-*.idx | sort -k3 -n | tail -20
+
+Mein Take
+
+Dä Freeze bi 98% “Compressing objects” passt 1:1 zu Delta-Compress auf üblen Binaries + zu vill Threads/RAM.
+
+Mit -delta für Binaries + Threads/Mem limit loht sich dä Spuk normal innert Minute behebe.
+
+Wenn Repo uf HDD/Netzshare/OneDrive-Folder liegt → verschiebe uf SSD lokal.
+
+Wotsch, gibe mir d’Extension-Lischte vo dine grossen Files, denn schick i dir e massgschneiderte .gitattributes + “LFS migrate” Command (nur falls erwünscht).

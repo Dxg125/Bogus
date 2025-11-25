@@ -198,3 +198,23 @@ window.onerror = (msg = ` - `, url = ` - `, lineNo = -1, columnNo = -1, trace = 
    /* try to suppress */
    return 0;
   };
+
+
+
+	/* Testing Errors */
+	if (false) {
+		/* A) Klassisch – direkt rejecte */
+		Promise.reject(new Error('UNHANDLED A ' + Date.now()));
+		/* B) Async-Funktion wirft (ohni catch) */
+		(async () => { throw new Error('UNHANDLED B ' + Date.now()); })();
+		/* C) Chain-Error – .then wirft, kei .catch */
+		Promise.resolve().then(() => { throw new Error('UNHANDLED C ' + Date.now()); });
+		/* D) fetch → .json() scheitert (ohni catch) */
+		fetch('data:text/plain,not-json').then(r => r.json());
+		/* E) Deini WS-Realität – send() im CONNECTING-Status */
+		const w = new WebSocket('wss://echo.websocket.events');
+		(async () => { w.send('boom'); })(); // throws synchron → async wrap → UNHANDLED
+		/* F) „Späterer Catch“ → zeigt auch rejectionhandled */
+		const p = Promise.reject(new Error('UNHANDLED LATE ' + Date.now()));
+		setTimeout(() => p.catch(()=>{}), 3000); // 3s spöter handled
+	}

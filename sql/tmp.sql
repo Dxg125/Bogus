@@ -1,4 +1,4 @@
-
+# just some ideas (and some very bad too :P)
 
 $GLOBALS['SQL']->select('Field1, Field2')->from('Table')->where()->and();
 $SQL->select();

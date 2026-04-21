@@ -1,4 +1,5 @@
-Let chaos = `reign`; lulululu
+<?php
+/*
 
 Struktur-Idee Index.html
 
@@ -12,13 +13,15 @@ loadHead();	Ladet den/die Doctype, css, js(die nötigen, welche keinen visuellen
 loadBody();	Gibt den kompletten visuellen Bereich der Seite aus(ohne animationen oder sonstwelche libaryaktionen wie jqx), von global inkludiert wie head und footer
 loadFooter();	Lädt die restlichen js, und andere animationen usw ein sowie schliesst den Tag ab
 
-/* SITE_ROOT const also necessary for Security Checks */
+SITE_ROOT const also necessary for Security Checks
+
+*/
 define('SITE_ROOT', realpath(dirname(__FILE__)));
 /* get the Includes */
 require_once(SITE_ROOT . '/controller/core/core.php');
 /* Check if POST-Ajax Request or echo Page */
 die(isAjax() ?: new Page(get(PAGE::PAGE_GET_KEY)));
-
+/*
 Autoinclude -> Page / style.css
 
 Page -> style.css/js.js/content.php
@@ -36,17 +39,21 @@ Anstatt
 getX(){return 123}
 setX($this->x=$x)}
 
+*/
+
 Function name($val = false){
 	If (!$val) return x;//wenn nicht gesetzt = false also ein get
 	Return $this->x = $val;//wenn gesetzt = val also update
 }
 
-
+?>
 
 <?php
+
 basename(__FILE__) != basename($_SERVER['SCRIPT_FILENAME']) && die();
 define('SITE_ROOT', realpath(dirname(__FILE__)));
 require_once(SITE_ROOT . 'InitialFilePathFromIndexonwarnds.php');
 die(dispatchStuff());
+
 ?>
 

@@ -9,3 +9,5 @@ Google.ch || .de	8.8.8.8
 Sondern
 Google.ch	8.8.8.8
 Google.de	8.8.8.8
+
+Nonie CloudFlare 1.1.1.1 gnoh lol

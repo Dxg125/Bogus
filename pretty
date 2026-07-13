@@ -1,0 +1,12 @@
+
+
+JS / HTML / CSS / JSON:
+
+npm install -g prettier
+
+create:
+
+ROOT-FOLDER/
+	.prettierrc
+	.prettierignore
+	...

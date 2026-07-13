@@ -1,0 +1,34 @@
+@'
+[ req ]
+default_bits       = 2048
+distinguished_name = req_distinguished_name
+x509_extensions    = v3_req
+prompt             = no
+
+[ req_distinguished_name ]
+C  = CH
+ST = Zurich
+L  = Zurich
+O  = PRD
+OU = Local
+CN = DOMAIN.DOMAIN.COM
+
+[ v3_req ]
+subjectAltName = @alt_names
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+basicConstraints = critical, CA:false
+
+[ alt_names ]
+DNS.1 = szh.zone
+DNS.2 = *.szh.zone
+DNS.3 = localhost
+IP.1  = IP-ADRESS
+IP.2  = ::1
+'@ | Set-Content -Encoding ascii .\zone.cnf
+
+openssl req -x509 -nodes -days 397 -newkey rsa:2048 `
+	-keyout .\zone.key `
+	-out .\zone.crt `
+	-config .\zone.cnf `
+	-sha256

@@ -1,3 +1,5 @@
+<?php
+
 //Testdaten
 $a = [["2019-02-02"], ["2020-03-10"], ["2018-03-15"], ["2011-11-01"]];
 
@@ -15,7 +17,7 @@ usort($a, $sort);// => kann auch so aufgerufen werden usort($a, "FunctionNameAsS
 
 var_dump($a);
 
-Oder in kurz mit em Spaceship - Operator:
+// Oder in kurz mit em Spaceship - Operator:
 
 //Testdaten
 $a = [["2019-02-02"], ["2020-03-10"], ["2018-03-15"], ["2011-11-01"]];

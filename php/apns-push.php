@@ -1,7 +1,7 @@
 <?php
 
 /* get functions (_curl, format_uuidv4) */
-require_once(__DIR__ . '/php/vm.php');
+require_once(__DIR__ . '/php/functions.php');
 /* cert file must exist! */
 if (!file_exists(($Certificate = __DIR__ . '/data/APNS-CERTIFICATE-PUSH.pem'))) {
  die('Nope 1');
@@ -30,7 +30,7 @@ $Result    = _curl([
  CURLOPT_HTTPHEADER     => $Header,
  CURLOPT_POSTFIELDS     => json_encode($Message),
  CURLOPT_SSLCERT        => $Certificate,
- CURLOPT_SSLCERTPASSWD  => 'oPP10',
+ CURLOPT_SSLCERTPASSWD  => 'P4SSW3RD',
  CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_2_0,
  CURLOPT_SSL_VERIFYHOST => 0,
  CURLOPT_SSL_VERIFYPEER => 0,
